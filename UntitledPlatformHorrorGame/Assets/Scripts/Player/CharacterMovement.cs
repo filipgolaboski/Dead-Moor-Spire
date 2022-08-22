@@ -9,17 +9,23 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private LayerMask platformLayerMask;
 
     public float movSpeed = 7f;
-    private float horizontal;
     public float jumpForce = 14f;
+    public float dashCooldown = 2f;
+    public float dashTime = 0.2f;
+    public float dashSpeed = 20f;
 
-    public bool jump;
+    private float horizontal;
+    private bool jump;
     private bool isGrounded;
+    private bool dashAvailable = true;
+    private bool isDashing = false;
 
     public int nrOfJumps = 2;
     private int currentNrOfJumps;
 
     void Start()
     {
+        
         capsuleCollider = GetComponent<CapsuleCollider2D>();
         rbPlayer = GetComponent<Rigidbody2D>();
 
@@ -27,6 +33,11 @@ public class CharacterMovement : MonoBehaviour
     }
     void Update()
     {
+        if (isDashing)
+        {
+            return;
+        }
+
         horizontal = Input.GetAxis("Horizontal");
         
         jump = Input.GetButtonDown("Jump");
@@ -39,6 +50,11 @@ public class CharacterMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (isDashing)
+        {
+            return;
+        }
+
         rbPlayer.velocity = new Vector2(horizontal * movSpeed, rbPlayer.velocity.y);
         isGrounded = IsGrounded();
 
@@ -51,6 +67,11 @@ public class CharacterMovement : MonoBehaviour
         {
             currentNrOfJumps = nrOfJumps;
         }
+
+        if(dashAvailable && Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            StartCoroutine(Dash());
+        }
     }
 
     public bool IsGrounded()
@@ -60,5 +81,20 @@ public class CharacterMovement : MonoBehaviour
         RaycastHit2D raycastHitright = Physics2D.Raycast(right, Vector2.down, 0.2f, platformLayerMask);
         RaycastHit2D raycastHitleft = Physics2D.Raycast(left, Vector2.down, 0.2f, platformLayerMask);
         return raycastHitleft.collider != null || raycastHitright.collider != null;
+    }
+
+
+    private IEnumerator Dash()
+    {
+        dashAvailable = false;
+        isDashing = true;
+        float gravity = rbPlayer.gravityScale;
+        rbPlayer.gravityScale = 0f;
+        rbPlayer.AddForce(new Vector2(dashSpeed * horizontal, 0f), ForceMode2D.Impulse);
+        yield return new WaitForSeconds(dashTime);
+        rbPlayer.gravityScale = gravity;
+        isDashing = false;
+        yield return new WaitForSeconds(dashCooldown);
+        dashAvailable = true;
     }
 }
