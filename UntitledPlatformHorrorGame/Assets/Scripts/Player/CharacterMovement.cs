@@ -11,26 +11,45 @@ public class CharacterMovement : MonoBehaviour
     public float movSpeed = 7f;
     private float horizontal;
     public float jumpForce = 14f;
+
     public bool jump;
+    private bool isGrounded;
+
+    public int nrOfJumps = 2;
+    private int currentNrOfJumps;
 
     void Start()
     {
         capsuleCollider = GetComponent<CapsuleCollider2D>();
         rbPlayer = GetComponent<Rigidbody2D>();
+
+        currentNrOfJumps = nrOfJumps;
     }
     void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
+        
         jump = Input.GetButtonDown("Jump");
+
+        if (jump)
+        {
+            currentNrOfJumps--;
+        }
     }
 
     void FixedUpdate()
     {
         rbPlayer.velocity = new Vector2(horizontal * movSpeed, rbPlayer.velocity.y);
+        isGrounded = IsGrounded();
 
-        if (jump && IsGrounded()) 
+        if (jump && (isGrounded || currentNrOfJumps > 0)) 
         {
             rbPlayer.velocity = new Vector2(rbPlayer.velocity.x, jumpForce);
+
+        }
+        if (isGrounded)
+        {
+            currentNrOfJumps = nrOfJumps;
         }
     }
 
