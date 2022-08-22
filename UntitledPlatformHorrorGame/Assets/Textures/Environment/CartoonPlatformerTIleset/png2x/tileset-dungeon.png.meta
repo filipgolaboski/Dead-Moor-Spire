@@ -43,9 +43,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -117,7 +117,196 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: tileset-dungeon_0
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 1698
+        width: 270
+        height: 274
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dbfc09996ed0424daa839a730d847a6
+      internalID: -19107682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset-dungeon_1
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 1972
+        width: 234
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13a0160834d4cea47b26e92e55704986
+      internalID: 53545224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset-dungeon_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1698
+        width: 57
+        height: 274
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 269187aa87408a742a7aae402bd3c541
+      internalID: 1752643946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset-dungeon_3
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 1664
+        width: 270
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e1b38548e4288a41bdee85072bb2481
+      internalID: -1834569965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset-dungeon_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1664
+        width: 57
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a210275956f3dfe478efa5124d86a72f
+      internalID: -493147592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset-dungeon_5
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 1664
+        width: 57
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d67d52b3d20818b4dbdfd4f21b13b9a7
+      internalID: -1427111580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset-dungeon_6
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 1698
+        width: 57
+        height: 274
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ce7b32b025d2df4c9b9980be09a289c
+      internalID: -2017190881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset-dungeon_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1972
+        width: 75
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e7bb04103cb1a348acfec4cbd444628
+      internalID: 1492112313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset-dungeon_8
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 1972
+        width: 75
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dd292000c4db1742967dab1175c8e5f
+      internalID: 752415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -128,7 +317,16 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tileset-dungeon_1: 53545224
+      tileset-dungeon_3: -1834569965
+      tileset-dungeon_7: 1492112313
+      tileset-dungeon_8: 752415
+      tileset-dungeon_0: -19107682
+      tileset-dungeon_5: -1427111580
+      tileset-dungeon_4: -493147592
+      tileset-dungeon_6: -2017190881
+      tileset-dungeon_2: 1752643946
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 
