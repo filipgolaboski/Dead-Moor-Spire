@@ -821,7 +821,7 @@ GameObject:
   - component: {fileID: 505410829}
   m_Layer: 0
   m_Name: Closed Sprite Shape (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1398,6 +1398,7 @@ GameObject:
   - component: {fileID: 814906228}
   - component: {fileID: 814906227}
   - component: {fileID: 814906229}
+  - component: {fileID: 814906230}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1465,7 +1466,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 814906224}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.7, y: -2.73, z: 0}
+  m_LocalPosition: {x: 3.58, y: -1.56, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1484,10 +1485,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 200
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 33
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -1505,7 +1506,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed0a2cd165a0724996846ba0c2b5314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movSpeed: 3
+  movSpeed: 7
+  jumpForce: 20
+  jumpTime: 0.3
 --- !u!70 &814906229
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1522,6 +1525,32 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!61 &814906230
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814906224}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -1.02}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 2}
+    newSize: {x: 1, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.03}
+  m_EdgeRadius: 0
 --- !u!1 &847332629
 GameObject:
   m_ObjectHideFlags: 0
@@ -1618,9 +1647,10 @@ GameObject:
   - component: {fileID: 982300805}
   - component: {fileID: 982300804}
   - component: {fileID: 982300803}
+  - component: {fileID: 982300807}
   m_Layer: 0
   m_Name: Closed Sprite Shape (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1821,6 +1851,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &982300807
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982300802}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -3.308015, y: -3.8722143}
+      - {x: -3.367727, y: -3.6796992}
+      - {x: -3.3639052, y: -1.1254022}
+      - {x: -3.3833873, y: -0.7794516}
+      - {x: -1.6743087, y: -0.8971491}
+      - {x: 0.026690464, y: -0.8942822}
+      - {x: 1.4404421, y: -0.8204361}
+      - {x: 1.4191507, y: -1.6100202}
+      - {x: 1.415674, y: -3.7344677}
+      - {x: 1.3554113, y: -3.894884}
+      - {x: -3.0932145, y: -3.8732586}
+      - {x: -3.148553, y: -3.8729897}
+      - {x: -3.308015, y: -3.8722143}
+  m_UseDelaunayMesh: 0
 --- !u!1 &1119318281
 GameObject:
   m_ObjectHideFlags: 0
@@ -1836,7 +1905,7 @@ GameObject:
   - component: {fileID: 1119318286}
   m_Layer: 0
   m_Name: Closed Sprite Shape
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

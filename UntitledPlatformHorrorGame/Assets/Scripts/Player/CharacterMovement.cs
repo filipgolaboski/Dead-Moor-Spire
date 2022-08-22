@@ -6,10 +6,11 @@ public class CharacterMovement : MonoBehaviour
 {
     private Rigidbody2D rbPlayer;
 
-    private float movSpeed = 3f;
+    public float movSpeed = 3f;
     private float horizontal;
-    private float vertical;
-    private float jumpForce = 10f;
+    public float jumpForce = 30f;
+    public float jumpTime = 1f;
+    private float currentJumpTime;
 
     private bool isJumping;
 
@@ -20,27 +21,41 @@ public class CharacterMovement : MonoBehaviour
 
         rbPlayer.freezeRotation = true;
 
+        currentJumpTime = 0f;
+
         isJumping = false;  
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
-       
-    }
-
     void FixedUpdate()
     {
-        if(horizontal > 0.1f  || horizontal < -0.1f)
+        horizontal = Input.GetAxisRaw("Horizontal");
+
+        rbPlayer.velocity = new Vector2(horizontal * movSpeed, 0f);
+
+        if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
         {
-            rbPlayer.AddForce(new Vector2(horizontal * movSpeed, 0f), ForceMode2D.Impulse);
+            currentJumpTime = jumpTime;
         }
 
-        if(vertical > 0.1f)
+        if(currentJumpTime >= 0f)
         {
-            rbPlayer.AddForce(new Vector2(0f, vertical * jumpForce), ForceMode2D.Impulse);
+            rbPlayer.velocity += Vector2.up * Mathf.Lerp(jumpForce, 0, (jumpTime - currentJumpTime) / jumpTime);
+            currentJumpTime -= Time.fixedDeltaTime;
         }
     }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Ground")
+        {
+            isJumping = false;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            isJumping = true;
+        }
+    } 
 }
