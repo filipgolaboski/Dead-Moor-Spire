@@ -13,12 +13,15 @@ public class CharacterMovement : MonoBehaviour
     public float dashCooldown = 2f;
     public float dashTime = 0.2f;
     public float dashSpeed = 20f;
+    public float airTime = 0.1f;
+    public float groundDistance = 0.1f;
 
     private float horizontal;
     private bool jump;
     private bool isGrounded;
     private bool dashAvailable = true;
     private bool isDashing = false;
+    private float currentAirTime;
 
     public int nrOfJumps = 2;
     private int currentNrOfJumps;
@@ -30,6 +33,7 @@ public class CharacterMovement : MonoBehaviour
         rbPlayer = GetComponent<Rigidbody2D>();
 
         currentNrOfJumps = nrOfJumps;
+        currentAirTime = 0;
     }
     void Update()
     {
@@ -39,12 +43,22 @@ public class CharacterMovement : MonoBehaviour
         }
 
         horizontal = Input.GetAxis("Horizontal");
-        
-        jump = Input.GetButtonDown("Jump");
 
-        if (jump)
+
+        if (!jump)
         {
-            currentNrOfJumps--;
+            jump = Input.GetButtonDown("Jump");
+            if (jump)
+            {
+                currentNrOfJumps--;
+                currentAirTime = airTime;
+            }
+        }
+
+        if (Input.GetButtonUp("Jump"))
+        {
+            currentAirTime = 0;
+            jump = false;
         }
     }
 
@@ -58,11 +72,13 @@ public class CharacterMovement : MonoBehaviour
         rbPlayer.velocity = new Vector2(horizontal * movSpeed, rbPlayer.velocity.y);
         isGrounded = IsGrounded();
 
-        if (jump && (isGrounded || currentNrOfJumps > 0)) 
+        if (currentAirTime>0 && (isGrounded || currentNrOfJumps > 0)) 
         {
-            rbPlayer.velocity = new Vector2(rbPlayer.velocity.x, jumpForce);
-
+            rbPlayer.velocity = new Vector2(rbPlayer.velocity.x, Mathf.Lerp(jumpForce, 0, currentAirTime));
+            jump = false;
+            currentAirTime -= Time.fixedDeltaTime;
         }
+
         if (isGrounded)
         {
             currentNrOfJumps = nrOfJumps;
@@ -78,8 +94,10 @@ public class CharacterMovement : MonoBehaviour
     {
         Vector2 right = new Vector2(capsuleCollider.bounds.center.x + capsuleCollider.bounds.size.x / 2, capsuleCollider.bounds.min.y);
         Vector2 left = new Vector2(capsuleCollider.bounds.center.x - capsuleCollider.bounds.size.x / 2, capsuleCollider.bounds.min.y);
-        RaycastHit2D raycastHitright = Physics2D.Raycast(right, Vector2.down, 0.2f, platformLayerMask);
-        RaycastHit2D raycastHitleft = Physics2D.Raycast(left, Vector2.down, 0.2f, platformLayerMask);
+        RaycastHit2D raycastHitright = Physics2D.Raycast(right, Vector2.down, groundDistance, platformLayerMask);
+        RaycastHit2D raycastHitleft = Physics2D.Raycast(left, Vector2.down, groundDistance, platformLayerMask);
+        Debug.DrawRay(right, Vector2.down*groundDistance, Color.green);
+        Debug.DrawRay(left, Vector2.down*groundDistance, Color.green);
         return raycastHitleft.collider != null || raycastHitright.collider != null;
     }
 
