@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
-    private Rigidbody2D rbPlayer;
+    public Rigidbody2D rbPlayer;
     private CapsuleCollider2D capsuleCollider;
     [SerializeField] private LayerMask platformLayerMask;
 
@@ -25,6 +25,7 @@ public class CharacterMovement : MonoBehaviour
 
     public int nrOfJumps = 2;
     private int currentNrOfJumps;
+    private float direction;
 
     void Start()
     {
@@ -43,6 +44,11 @@ public class CharacterMovement : MonoBehaviour
         }
 
         horizontal = Input.GetAxis("Horizontal");
+        
+        if(horizontal != 0) 
+        { 
+        direction = Mathf.Sign(horizontal);
+        }
 
 
         if (!jump)
@@ -108,7 +114,8 @@ public class CharacterMovement : MonoBehaviour
         isDashing = true;
         float gravity = rbPlayer.gravityScale;
         rbPlayer.gravityScale = 0f;
-        rbPlayer.AddForce(new Vector2(dashSpeed * horizontal, 0f), ForceMode2D.Impulse);
+        rbPlayer.velocity = Vector2.zero;
+        rbPlayer.AddForce(new Vector2(dashSpeed * direction, 0f), ForceMode2D.Impulse);
         yield return new WaitForSeconds(dashTime);
         rbPlayer.gravityScale = gravity;
         isDashing = false;
