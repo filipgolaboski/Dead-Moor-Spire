@@ -1,0 +1,12 @@
+Mega castle and dungeon building pack
+
+A complete pack for creating, castle, dungeon and sewer levels. The pack includes huge repeating backgrounds, over 30 repeating tiles for creating an infinite variety of levels, Background props such as doors, portculis, spikes and a driping sewer pipe which leaks a variety of liquids, animated tourches and animated chandaliers and on top of the that pack  even includes two completely animated sprite charaters, a zombie and a flying bat.
+
+All assets are 100% vector but I have also included .png files so you can use them in your engine straight away with the minimum opf editing. The zombie sprite animations have been made with spriter and have been exported at around 600 pixels by frame, depending on the animation. The spriter file is also included.
+
+The background repeats on all sides and is really large, I made it huge to avoid easily visible  repeating patterns
+that often occur in tiled platform games.
+
+If you have any questions about any asset included in this pack please don't hesitate to ask in a comment or send me a message. Although what you see in the preview images and in the example image is what is included. 
+
+

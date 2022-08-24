@@ -103,6 +103,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -111,9 +123,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1518
-        y: 552
-        width: 397
-        height: 1443
+        y: 554
+        width: 392
+        height: 1439
       alignment: 9
       pivot: {x: 0.46, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,10 +143,10 @@ TextureImporter:
       name: 2108.w032.n003.41B.p1.41_1
       rect:
         serializedVersion: 2
-        x: 2111
-        y: 552
-        width: 396
-        height: 1467
+        x: 2112
+        y: 554
+        width: 392
+        height: 1463
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,10 +164,10 @@ TextureImporter:
       name: 2108.w032.n003.41B.p1.41_2
       rect:
         serializedVersion: 2
-        x: 2705
-        y: 552
-        width: 397
-        height: 1484
+        x: 2707
+        y: 554
+        width: 392
+        height: 1480
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,10 +185,10 @@ TextureImporter:
       name: 2108.w032.n003.41B.p1.41_4
       rect:
         serializedVersion: 2
-        x: 3898
-        y: 552
-        width: 397
-        height: 1522
+        x: 3900
+        y: 554
+        width: 392
+        height: 1518
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,10 +206,10 @@ TextureImporter:
       name: 2108.w032.n003.41B.p1.41_5
       rect:
         serializedVersion: 2
-        x: 4487
-        y: 552
-        width: 396
-        height: 1522
+        x: 4495
+        y: 554
+        width: 392
+        height: 1518
       alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,10 +227,10 @@ TextureImporter:
       name: 2108.w032.n003.41B.p1.41_6
       rect:
         serializedVersion: 2
-        x: 5091
-        y: 552
-        width: 397
-        height: 1520
+        x: 5093
+        y: 554
+        width: 392
+        height: 1518
       alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,9 +249,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 5692
-        y: 552
-        width: 399
-        height: 1522
+        y: 554
+        width: 392
+        height: 1518
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -257,10 +269,10 @@ TextureImporter:
       name: 2108.w032.n003.41B.p1.41_9
       rect:
         serializedVersion: 2
-        x: 6284
-        y: 552
-        width: 396
-        height: 1525
+        x: 6286
+        y: 554
+        width: 392
+        height: 1521
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -278,10 +290,10 @@ TextureImporter:
       name: 2108.w032.n003.41B.p1.41_10
       rect:
         serializedVersion: 2
-        x: 317
-        y: 552
-        width: 396
-        height: 1368
+        x: 321
+        y: 554
+        width: 392
+        height: 1364
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -299,10 +311,10 @@ TextureImporter:
       name: 2108.w032.n003.41B.p1.41_11
       rect:
         serializedVersion: 2
-        x: 910
-        y: 552
-        width: 398
-        height: 1416
+        x: 916
+        y: 554
+        width: 392
+        height: 1412
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -320,10 +332,10 @@ TextureImporter:
       name: 2108.w032.n003.41B.p1.41_12
       rect:
         serializedVersion: 2
-        x: 3303
-        y: 552
-        width: 394
-        height: 1520
+        x: 3305
+        y: 554
+        width: 392
+        height: 1518
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
