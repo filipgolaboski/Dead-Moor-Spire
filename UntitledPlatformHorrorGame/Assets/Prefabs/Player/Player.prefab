@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8168144643819786991}
   - component: {fileID: 8168144643819786984}
   - component: {fileID: 8168144643819786990}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8168144643819786986
 SpriteRenderer:
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed0a2cd165a0724996846ba0c2b5314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rbPlayer: {fileID: 0}
   platformLayerMask:
     serializedVersion: 2
     m_Bits: 64
