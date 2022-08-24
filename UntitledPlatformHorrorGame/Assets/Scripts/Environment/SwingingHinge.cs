@@ -8,6 +8,7 @@ namespace Envrionment
     public class SwingingHinge : MonoBehaviour
     {
         public float maxMotorSpeed;
+        public int startDirection = 1;
         public AnimationCurve motorSpeedCurve;
         public HingeJoint2D HingeJoint2D;
 
@@ -17,7 +18,7 @@ namespace Envrionment
 
         private void Start()
         {
-            currentTargetMotorSpeed = maxMotorSpeed;
+            currentTargetMotorSpeed = maxMotorSpeed*startDirection;
             currentTargetAngle = HingeJoint2D.limits.max;
         }
 
