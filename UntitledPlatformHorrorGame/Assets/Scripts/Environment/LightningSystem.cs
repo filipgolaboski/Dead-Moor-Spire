@@ -10,6 +10,7 @@ public class LightningSystem : MonoBehaviour
     float[] originalLightIntensity;
     public float lightIntensity;
     public float flickerWaitTime;
+    public SingleSoundPlayer lightningSound;
     
     [Range(0,1)]
     public float lightningChance;
@@ -45,10 +46,13 @@ public class LightningSystem : MonoBehaviour
             }
             lightningParticleSystems[i].Play();
         }
+        
     }
 
     IEnumerator FlickerLights()
     {
+        yield return new WaitForSeconds(0.1f);
+        lightningSound.PlaySingleClip();
         for (int i = 0; i < enviornmentLights.Length; i++)
         {
             enviornmentLights[i].intensity = lightIntensity;

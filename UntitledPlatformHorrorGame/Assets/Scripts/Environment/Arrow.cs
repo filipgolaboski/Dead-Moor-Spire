@@ -12,7 +12,8 @@ public class Arrow : MonoBehaviour
     public bool fire;
     public LayerMask hitMask;
     public ArrowHit onArrowHit;
-
+    public SingleSoundPlayer arrowFly;
+    public SingleSoundPlayer arrowHit;
 
     bool flying;
     Rigidbody2D arrowBody;
@@ -31,6 +32,7 @@ public class Arrow : MonoBehaviour
             arrowBody.AddForce(transform.up * arrowForce, ForceMode2D.Impulse);
             flying = true;
             fire = false;
+            arrowFly.PlaySingleClip();
         }
 
         if(flying)
@@ -41,6 +43,7 @@ public class Arrow : MonoBehaviour
                 flying = false;
                 arrowBody.constraints = RigidbodyConstraints2D.FreezeAll;
                 onArrowHit.Invoke(hit);
+                arrowHit.PlaySingleClip();
             }
         }
 

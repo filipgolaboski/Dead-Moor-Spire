@@ -11,6 +11,9 @@
 */[Mm]emoryCaptures/
 */[Uu]serSettings/
 */UserSettings/Layouts/
+*/Assets/Universal Sound FX/
+*/Assets/Ultimate Game Music Collection/
+*/Assets/DarkFantasyStudio/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !*/[Aa]ssets/**/*.meta

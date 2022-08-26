@@ -12,6 +12,8 @@ namespace Envrionment
         public AnimationCurve motorSpeedCurve;
         public HingeJoint2D HingeJoint2D;
 
+        public SingleSoundPlayer hingeTurn;
+
         float currentTargetMotorSpeed;
         float currentTargetAngle;
         JointMotor2D motor;
@@ -29,12 +31,14 @@ namespace Envrionment
             {
                 currentTargetMotorSpeed = -maxMotorSpeed;
                 currentTargetAngle = HingeJoint2D.limits.min;
+                hingeTurn.PlaySingleClip();
             }
 
             if (HingeJoint2D.limits.min - HingeJoint2D.jointAngle > -0.1)
             {
                 currentTargetMotorSpeed = maxMotorSpeed;
                 currentTargetAngle = HingeJoint2D.limits.max;
+                hingeTurn.PlaySingleClip();
             }
 
             motor = HingeJoint2D.motor;

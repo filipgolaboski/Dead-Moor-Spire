@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2991468708594772628, guid: 8a439b3cd2c64654f8d10c73e978829e, type: 3}
       propertyPath: m_RootOrder
-      value: 24
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2991468708594772628, guid: 8a439b3cd2c64654f8d10c73e978829e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -71,6 +71,30 @@ PrefabInstance:
     - target: {fileID: 2991468708594772628, guid: 8a439b3cd2c64654f8d10c73e978829e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4306498769150451684, guid: 8a439b3cd2c64654f8d10c73e978829e, type: 3}
+      propertyPath: MinDistance
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4306498769150451684, guid: 8a439b3cd2c64654f8d10c73e978829e, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5824571828876615199, guid: 8a439b3cd2c64654f8d10c73e978829e, type: 3}
+      propertyPath: MaxDistance
+      value: 2.294673
+      objectReference: {fileID: 0}
+    - target: {fileID: 5824571828876615199, guid: 8a439b3cd2c64654f8d10c73e978829e, type: 3}
+      propertyPath: MinDistance
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5824571828876615199, guid: 8a439b3cd2c64654f8d10c73e978829e, type: 3}
+      propertyPath: rolloffMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5824571828876615199, guid: 8a439b3cd2c64654f8d10c73e978829e, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

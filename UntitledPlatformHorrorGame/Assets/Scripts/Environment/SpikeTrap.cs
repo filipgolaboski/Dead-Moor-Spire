@@ -15,6 +15,9 @@ public class SpikeTrap : MonoBehaviour
     public LayerMask sensorMask;
     public float sensorDelay;
 
+    public SingleSoundPlayer openTrapPlayer;
+    public SingleSoundPlayer closeTrapPlayer;
+
     float currentInterval;
     float currentActiveTime;
 
@@ -61,7 +64,9 @@ public class SpikeTrap : MonoBehaviour
 
     void RiseAllSpikes()
     {
-        for(int i=0;i<groundSpikes.Length;i++)
+        closeTrapPlayer.StopAudioSource();
+        openTrapPlayer.PlaySingleClip();
+        for (int i=0;i<groundSpikes.Length;i++)
         {
             groundSpikes[i].RiseSpikes();
         }
@@ -69,6 +74,8 @@ public class SpikeTrap : MonoBehaviour
 
     void FallAllSpikes()
     {
+        openTrapPlayer.StopAudioSource();
+        closeTrapPlayer.PlaySingleClip();
         for (int i = 0; i < groundSpikes.Length; i++)
         {
             groundSpikes[i].FallSpikes();
