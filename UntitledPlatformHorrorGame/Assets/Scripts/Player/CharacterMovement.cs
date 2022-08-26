@@ -23,6 +23,8 @@ public class CharacterMovement : MonoBehaviour
     private bool isDashing = false;
     private float currentAirTime;
 
+    public Character character;
+
     public int nrOfJumps = 2;
     private int currentNrOfJumps;
     private float direction;
@@ -44,10 +46,12 @@ public class CharacterMovement : MonoBehaviour
         }
 
         horizontal = Input.GetAxis("Horizontal");
-        
+        character.characterSpeed = Mathf.Abs(horizontal) * movSpeed;
+
         if(horizontal != 0) 
         { 
-        direction = Mathf.Sign(horizontal);
+            direction = Mathf.Sign(horizontal);
+            character.direction = direction;
         }
 
 
@@ -56,6 +60,7 @@ public class CharacterMovement : MonoBehaviour
             jump = Input.GetButtonDown("Jump");
             if (jump)
             {
+
                 currentNrOfJumps--;
                 currentAirTime = airTime;
             }
@@ -65,6 +70,12 @@ public class CharacterMovement : MonoBehaviour
         {
             currentAirTime = 0;
             jump = false;
+        }
+
+        if (dashAvailable && Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            character.characterDashing = true;
+            StartCoroutine(Dash());
         }
     }
 
@@ -80,9 +91,14 @@ public class CharacterMovement : MonoBehaviour
 
         if (currentAirTime>0 && (isGrounded || currentNrOfJumps > 0)) 
         {
+            character.characterJump = true;
             rbPlayer.velocity = new Vector2(rbPlayer.velocity.x, Mathf.Lerp(jumpForce, 0, currentAirTime));
             jump = false;
             currentAirTime -= Time.fixedDeltaTime;
+        }
+        else
+        {
+            character.characterJump = false;
         }
 
         if (isGrounded)
@@ -90,10 +106,7 @@ public class CharacterMovement : MonoBehaviour
             currentNrOfJumps = nrOfJumps;
         }
 
-        if(dashAvailable && Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            StartCoroutine(Dash());
-        }
+        
     }
 
     public bool IsGrounded()
@@ -119,7 +132,9 @@ public class CharacterMovement : MonoBehaviour
         yield return new WaitForSeconds(dashTime);
         rbPlayer.gravityScale = gravity;
         isDashing = false;
+        character.characterDashing = false;
         yield return new WaitForSeconds(dashCooldown);
         dashAvailable = true;
+        
     }
 }

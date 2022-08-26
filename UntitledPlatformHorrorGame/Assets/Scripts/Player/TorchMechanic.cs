@@ -49,6 +49,10 @@ public class TorchMechanic : MonoBehaviour
         torch2.GetComponent<Light2D>().pointLightOuterRadius = originalRadius2 * (torchCurrentHP/maxHP);
     }
 
+    public void KillTorch()
+    {
+        torchCurrentHP = 0;
+    }
 
 
 }
