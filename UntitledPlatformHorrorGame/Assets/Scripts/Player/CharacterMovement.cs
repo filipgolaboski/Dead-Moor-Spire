@@ -15,6 +15,7 @@ public class CharacterMovement : MonoBehaviour
     public float dashSpeed = 20f;
     public float airTime = 0.1f;
     public float groundDistance = 0.1f;
+    public float coyoteTime = 0.1f;
 
     private float horizontal;
     private bool jump;
@@ -28,6 +29,7 @@ public class CharacterMovement : MonoBehaviour
     public int nrOfJumps = 2;
     private int currentNrOfJumps;
     private float direction;
+    float coyote;
 
     void Start()
     {
@@ -35,11 +37,18 @@ public class CharacterMovement : MonoBehaviour
         capsuleCollider = GetComponent<CapsuleCollider2D>();
         rbPlayer = GetComponent<Rigidbody2D>();
 
+        coyote = coyoteTime;
         currentNrOfJumps = nrOfJumps;
         currentAirTime = 0;
     }
     void Update()
     {
+        if (character.characterDeath)
+        {
+            rbPlayer.velocity = Vector3.zero;
+            return;
+        }
+
         if (isDashing)
         {
             return;
@@ -60,7 +69,6 @@ public class CharacterMovement : MonoBehaviour
             jump = Input.GetButtonDown("Jump");
             if (jump)
             {
-
                 currentNrOfJumps--;
                 currentAirTime = airTime;
             }
@@ -89,10 +97,10 @@ public class CharacterMovement : MonoBehaviour
         rbPlayer.velocity = new Vector2(horizontal * movSpeed, rbPlayer.velocity.y);
         isGrounded = IsGrounded();
 
-        if (currentAirTime>0 && (isGrounded || currentNrOfJumps > 0)) 
+        if (currentAirTime>0 && ((isGrounded || coyote > 0) || currentNrOfJumps > 0)) 
         {
             character.characterJump = true;
-            rbPlayer.velocity = new Vector2(rbPlayer.velocity.x, Mathf.Lerp(jumpForce, 0, currentAirTime));
+            rbPlayer.velocity = new Vector2(rbPlayer.velocity.x, Mathf.Lerp(jumpForce, 0, currentAirTime/airTime));
             jump = false;
             currentAirTime -= Time.fixedDeltaTime;
         }
@@ -101,10 +109,19 @@ public class CharacterMovement : MonoBehaviour
             character.characterJump = false;
         }
 
-        if (isGrounded)
+        if (isGrounded || coyote > 0)
         {
             currentNrOfJumps = nrOfJumps;
+            if (isGrounded)
+            {
+                coyote = coyoteTime;
+            }
+            else
+            {
+                coyote -= Time.fixedDeltaTime;
+            }
         }
+        
 
         
     }

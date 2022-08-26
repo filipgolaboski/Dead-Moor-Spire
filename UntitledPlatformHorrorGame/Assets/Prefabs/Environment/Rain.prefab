@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6770626440190442841}
   - component: {fileID: 6770626440190442840}
   - component: {fileID: 6770626440190442843}
+  - component: {fileID: 8577418023179559412}
   m_Layer: 0
   m_Name: Rain
   m_TagString: Untagged
@@ -32,7 +33,7 @@ Transform:
   m_Children:
   - {fileID: 6770626441284056672}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -21.681, y: 90, z: 0}
 --- !u!198 &6770626440190442840
 ParticleSystem:
@@ -3792,7 +3793,7 @@ ParticleSystem:
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
@@ -4816,6 +4817,20 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &8577418023179559412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6770626440190442842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ebe68f5ed8c04b927c47027bc89ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  immunityTime: 0.2
 --- !u!1 &6770626441284056677
 GameObject:
   m_ObjectHideFlags: 0

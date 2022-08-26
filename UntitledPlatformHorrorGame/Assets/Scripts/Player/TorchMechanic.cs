@@ -11,6 +11,8 @@ public class TorchMechanic : MonoBehaviour
     // the intensity and range of the torch goes lower and lower
     // dash lowers the intensity and range
 
+    public Character character;
+
     public GameObject torch1;
     public GameObject torch2;
     private float maxHP = 100f;
@@ -36,11 +38,7 @@ public class TorchMechanic : MonoBehaviour
 
     void Update()
     {
-        torchCurrentHP -= Time.deltaTime / decayRate;
-        if (torchCurrentHP <= 0)
-        {
-            //die
-        }
+        DamageTorch(Time.deltaTime / decayRate);
 
         torch1.GetComponent<Light2D>().intensity = originalIntensity1 * (torchCurrentHP / maxHP);
         torch2.GetComponent<Light2D>().intensity = originalIntensity2 * (torchCurrentHP / maxHP);
@@ -52,6 +50,41 @@ public class TorchMechanic : MonoBehaviour
     public void KillTorch()
     {
         torchCurrentHP = 0;
+        character.KillCharacter();
+    }
+
+    public void DamageTorch(float damage)
+    {
+        if (!character.characterDeath)
+        {
+            if (torchCurrentHP > 0)
+            {
+                torchCurrentHP -= damage;
+            }
+
+            if (torchCurrentHP <= 0)
+            {
+                KillTorch();
+            }
+        }
+    }
+
+    public void ReplenishTorch(float replenish)
+    {
+        if(torchCurrentHP < maxHP)
+        {
+            torchCurrentHP += replenish;
+        }
+
+        if(torchCurrentHP > maxHP)
+        {
+            torchCurrentHP = maxHP;
+        }
+    }
+
+    public void ReviveTorch()
+    {
+        torchCurrentHP = maxHP;
     }
 
 

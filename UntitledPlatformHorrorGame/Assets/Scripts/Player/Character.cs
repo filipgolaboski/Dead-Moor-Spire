@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Character : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class Character : MonoBehaviour
     public float direction;
 
     public Animator animator;
+    public UnityEvent onCharacterDeath;
+    public UnityEvent onCharacterRevive;
 
     // Start is called before the first frame update
     void Start()
@@ -23,25 +26,30 @@ public class Character : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (characterDeath)
+        if (!characterDeath)
         {
-            KillCharacter();
+            UpdateAnimatorBool("CharacterJump", characterJump);
+            UpdateAnimatorBool("CharacterDash", characterDashing);
+
+            if (characterSpeed > 0 && !characterJump && !characterFalling && !characterDashing)
+            {
+                UpdateAnimatorFloat("CharacterRun", characterSpeed);
+            }
+
+            FlipCharacter();
         }
-
-        UpdateAnimatorBool("CharacterJump", characterJump);
-        UpdateAnimatorBool("CharacterDash", characterDashing);
-
-        if (characterSpeed > 0 && !characterJump && !characterFalling && !characterDashing)
-        {
-            UpdateAnimatorFloat("CharacterRun", characterSpeed);
-        }
-
-        FlipCharacter();
     }
 
     public void KillCharacter()
     {
         characterDeath = true;
+        onCharacterDeath.Invoke();
+    }
+
+    public void ReviveCharacter()
+    {
+        characterDeath = false;
+        onCharacterRevive.Invoke();
     }
 
     public void FlipCharacter()
