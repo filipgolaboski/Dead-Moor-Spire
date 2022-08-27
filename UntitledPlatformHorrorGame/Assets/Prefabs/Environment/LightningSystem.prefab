@@ -191,12 +191,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightningParticleSystems:
   - {fileID: 5555801433973479363}
+  - {fileID: 0}
   enviornmentLights:
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   lightIntensity: 30
   flickerWaitTime: 0.1
   lightningSound: {fileID: 1410379744089652799}
-  lightningChance: 0.005
+  lightningChance: 0.0005
 --- !u!1 &5555801433973479362
 GameObject:
   m_ObjectHideFlags: 0
