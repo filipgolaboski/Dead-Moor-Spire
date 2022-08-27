@@ -56,6 +56,8 @@ public class ArrowLauncher : MonoBehaviour
         {
             arrows[i].transform.localPosition = Vector3.zero;
             arrows[i].transform.localRotation = Quaternion.Euler(Vector3.zero);
+            arrows[i].GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            arrows[i].GetComponent<Rigidbody2D>().angularVelocity = 0;
         }
     }
 }
